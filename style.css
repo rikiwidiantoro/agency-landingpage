@@ -1,0 +1,327 @@
+body {
+  margin: 0;
+  font-family: Verdana,sans-serif;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  margin: 0px 25px;
+}
+
+
+/* navbar */
+nav {
+  background-color: black;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+nav .container-nav {
+  display: flex;
+  justify-content: space-between;
+}
+.navbar-menu li {
+  display: inline;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+}
+nav a:hover {
+  background-color: white;
+  color: black;
+}
+nav .green {
+  background-color: #009688;
+}
+
+
+/* banner */
+.banner-image {
+  margin-top: 40px;
+}
+.banner-image .image {
+  background-image: url("https://images.unsplash.com/photo-1468581264429-2548ef9eb732?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  height: 550px;
+  background-size: cover;
+  background-position: 0px -200px;
+  position: relative;
+}
+.banner-image h1 {
+  position: absolute;
+  /* inset: 0; */
+  left: 2%;
+  bottom: 2%;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.banner-image h1:hover {
+  background-color: #009688;
+}
+
+/* main */
+.team, .our-work, .pricing, .contact {
+  padding: 60px 0px;
+}
+.team .team-header h1, .our-work .work-text h1, .pricing .pricing-header h1, .contact .contact-header h1 {
+  font-size: 28px;
+  font-weight: 100;
+}
+.team .team-header, .pricing .pricing-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.our-work .container, .contact .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* team */
+.team .team-header p{
+  margin-top: -10px;
+}
+.cards {
+  display: flex;
+}
+.card {
+  width: 25%;
+  text-align: center;
+}
+.card .card-image {
+  width: 170px;
+  border-radius: 50%;
+}
+.card .card-image:hover {
+  opacity: .7;
+}
+.card .card-name {
+  margin: 8px 0px;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+/* our work */
+.our-work {
+  background-color: #333;
+}
+.work-text {
+  color: white;
+  width: 25%;
+}
+
+
+.work-cards {
+  width: 75%;
+  display: flex;
+}
+.work-cards .work-card {
+  /* width: auto; */
+  background-color: white;
+  margin: 0px 5px;
+}
+.work-card h5, .work-card ul {
+  margin: 20px 20px;
+}
+.work-card img {
+  width: 100%;
+}
+.work-card h5 {
+  font-weight: 100;
+  font-size: 20px;
+}
+.work-card ul li {
+  margin: 15px 0px;
+  list-style: none;
+}
+
+
+/* pricing */
+.pricing-isi .pricing-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pricing-isi .pricing-card {
+  border: 1px solid rgba(0, 0, 0, .5);
+  /* display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px; */
+  flex-basis: 30%;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 16px;
+}
+.pricing-isi .pricing-card:hover {
+  box-shadow: 0px 3px 16px rgba(0, 0, 0, .5);
+}
+.div-header {
+  background-color: black;
+}
+.div-header-bedawarna {
+  background-color: #666;
+}
+.div-button {
+  background-color: #f0f0f0;
+}
+.pricing-card h3, .pricing-card ul li, .pricing-card p {
+  border-bottom: 1px solid rgba(0, 0, 0, .5);
+  margin: 0;
+}
+.pricing-card h3 {
+  padding: 35px;
+  color: white;
+  font-size: 25px;
+  font-weight: 100;
+}
+.pricing-card ul li {
+  list-style: none;
+  padding: 20px;
+}
+.pricing-card p {
+  padding: 30px;
+  font-size: 30px;
+}
+.pricing-card span {
+  font-size: 16px;
+  opacity: .5;
+}
+.pricing-card button {
+  margin: 20px;
+  padding: 15px 30px;
+  cursor: pointer;
+  background-color: #009688;
+  color: white;
+  border: none;
+}
+.pricing-card button:hover {
+  background-color: #ccc;
+  color: black;
+}
+
+
+/* contact */
+.contact {
+  background-color: #f0f0f0;
+}
+.contact-header {
+  width: 40%;
+}
+.contact-header h1 {
+  margin-bottom: 0;
+}
+.contact-header h3 {
+  font-weight: 100;
+}
+.contact-header hr {
+  display: inline-block;
+  width: 155px;
+  height: 3px;
+  background-color: #009688;
+  border: none;
+}
+.contact-header ul li {
+  list-style: none;
+  line-height: 30px;
+}
+.contact-isi {
+  width: 60%;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 3px 10px black;
+}
+.contact-isi input.input  {
+  width: 97%;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .5);
+  margin-bottom: 15px;
+  padding: 12px;
+  font-size: 16px;
+}
+.contact-isi button {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+.contact-isi button:hover {
+  background-color: #ccc;
+  color: black;
+}
+.contact-isi div {
+  display: flex;
+  justify-content: space-between;
+}
+.contact-isi div label {
+  margin-top: 10px;
+}
+.contact-isi div input {
+  width: 1.2em;
+  margin-right: 10px;
+}
+
+
+/* banner image 2 */
+.banner-image2 .image {
+  background-image: url("https://images.unsplash.com/photo-1500043357865-c6b8827edf10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  height: 600px;
+  background-size: cover;
+  background-position: 0px -300px;
+}
+
+
+/* footer */
+footer {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 50px 0px 100px;
+  text-align: center;
+  position: relative;
+}
+.footer-sosmed h3, .footer-copyright p {
+  margin: 0;
+  font-weight: 100;
+}
+footer .sosmed {
+  margin: 30px 0px;
+}
+footer .sosmed span {
+  background-color: #009688;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 12px;
+}
+footer .sosmed span:hover {
+  background-color: #ccc;
+  color: black;
+}
+footer .up a {
+  padding: 8px 4px;
+  /* background-color: black; */
+  background-color: #009688;
+  width: 3%;
+  position: absolute;
+  right: 5%;
+  bottom: 40%;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+}
+footer .up a:hover {
+  background-color: #ccc;
+  color: black;
+}
