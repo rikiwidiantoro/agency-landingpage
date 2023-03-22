@@ -1,169 +1,134 @@
-// data teams
-const dataUser = [
-  {
-    imageUrl: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80',
-    name: 'Riki Widiantoro',
-    position: 'Founder & CEO'
-  },
-  {
-    imageUrl: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80',
-    name: 'Paul Atreides',
-    position: 'CTO'
-  },
-  {
-    imageUrl: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80',
-    name: 'Letto Atreides',
-    position: 'CFO'
-  },
-  {
-    imageUrl: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80',
-    name: 'Alia Atreides',
-    position: 'Staf'
+const tbody = document.getElementById('tbody');
+function sendMessage() {
+
+  let id = document.forms['message-form']['id'].value;
+  let name = document.forms['message-form']['name'].value;
+  let email = document.forms['message-form']['email'].value;
+  let subject = document.forms['message-form']['subject'].value;
+  let comment = document.forms['message-form']['comment'].value;
+
+  // document.getElementById('name').innerText = name;
+  // document.getElementById('email').innerText = email;
+  // document.getElementById('subject').innerText = subject;
+  // document.getElementById('comment').innerText = comment;
+
+
+
+  // let jumlah = document.getElementsByTagName('tr').length;
+  // // create element html
+  // let tr = document.createElement('tr');
+  // let tdName = document.createElement('td');
+  // let tdEmail = document.createElement('td');
+  // let tdSubject = document.createElement('td');
+  // let tdComment = document.createElement('td');
+  // let tdNomor = document.createElement('td');
+
+  // tdNomor.innerText = jumlah + '.';
+  // tdName.innerText = name;
+  // tdEmail.innerText = email;
+  // tdSubject.innerText = subject;
+  // tdComment.innerText = comment;
+
+  // tr.append(tdNomor, tdName, tdEmail, tdSubject, tdComment);
+  // tbody.appendChild(tr);
+
+
+
+  // local storage
+  // current data -> menambahkan data dari form ke object
+  let dataObject = {
+    id: id,
+    name: name,
+    email: email,
+    subject: subject,
+    comment, comment
   }
-];
+  
 
-// container div card team
-const teams = document.getElementById("data-teams");
+  // add new data
+  // menampilkan data pada localStorage dengan getItem()
+  let updateData = JSON.parse(localStorage.getItem('datas'));
 
+  // cek apakah data sudah ada atau belum? jika masih awal belum ada maka buat array kosong
+  if(!updateData) {
+    updateData = [];
+  }
+
+  // jika sudah ada array atau data maka tinggal menambahkan data baru dengan push()
+  updateData.push(dataObject);
+
+  // menyimpan data dengan setItem()
+  localStorage.setItem('datas', JSON.stringify(updateData));
+
+}
+
+
+// buat data user array of object dari localStorage
+let dataUser = JSON.parse(localStorage.getItem('datas'));
+// console.log(dataUser);
+
+// looping data user
 for( let i = 0; i < dataUser.length; i++ ) {
-  let card = document.createElement('div');
-  let img = document.createElement('img');
-  let h5 = document.createElement('h5');
-  let p = document.createElement('p');
+  // console.log(dataUser[i].name);
 
-  card.classList.add('card');
-  img.classList.add('card-image');
-  h5.classList.add('card-name');
-  p.classList.add('card-position');
+  let jumlah = document.getElementsByTagName('tr').length;
+  // create element html
+  let tr = document.createElement('tr');
+  let tdID = document.createElement('td');
+  let tdName = document.createElement('td');
+  let tdEmail = document.createElement('td');
+  let tdSubject = document.createElement('td');
+  let tdComment = document.createElement('td');
+  let tdNomor = document.createElement('td');
 
-  img.src = dataUser[i].imageUrl;
-  h5.innerText = dataUser[i].name;
-  p.innerText = dataUser[i].position;
-
-  // card.appendChild(img);
-  // card.appendChild(h5);
-  // card.appendChild(p);
-
-  card.append(img, h5, p);
-
-  teams.appendChild(card);
-}
-
-// data customer
-const dataCustomer = [
-  {
-    imageUrl: 'https://images.unsplash.com/photo-1439405326854-014607f694d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-    title: 'Customer 1',
-    ul: '<li>Trade</li><li>blablabla</li><li>blablabla</li><li>blablabla</li><li>blablabla</li>'
-  },
-  {
-    imageUrl: 'https://images.unsplash.com/photo-1439405326854-014607f694d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-    title: 'Customer 2',
-    ul: '<li>Trade</li><li>blablabla</li><li>blablabla</li><li>blablabla</li><li>blablabla</li>'
-  },
-  {
-    imageUrl: 'https://images.unsplash.com/photo-1439405326854-014607f694d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-    title: 'Customer 3',
-    ul: '<li>Trade</li><li>blablabla</li><li>blablabla</li><li>blablabla</li><li>blablabla</li>'
-  },
-];
-
-// container div card customer
-const workCards = document.getElementById('work-cards');
-
-for( let j = 0; j < dataCustomer.length; j++ ) {
-  let card = document.createElement('div');
-  let img = document.createElement('img');
-  let h5 = document.createElement('h5');
-  let ul = document.createElement('ul');
-
-  card.classList.add('work-card');
-
-  img.src = dataCustomer[j].imageUrl;
-  h5.innerText = dataCustomer[j].title;
-  ul.innerHTML = dataCustomer[j].ul;
-
-  card.append(img, h5, ul);
-
-  workCards.appendChild(card);
-
-
-  // const card = `
-  // <div class="work-card">
-  //   <img src="${dataCustomer[j].imageUrl}" alt="work-img">
-  //   <h5>${dataCustomer[j].title}</h5>
-  //   <ul>${dataCustomer[j].ul}</ul>
-  // </div>
-  // `;
-
-  // workCards.appendChild(card);
-}
-
-// data pricing
-const dataPricing = [
-  {
-    title: 'Basic',
-    storage: '10GB',
-    email: 10,
-    domain: 10,
-    support: 'Endless',
-    price: '$ 10'
-  },
-  {
-    title: 'Pro',
-    storage: '25GB',
-    email: 25,
-    domain: 25,
-    support: 'Endless',
-    price: '$ 25'
-  },
-  {
-    title: 'Premium',
-    storage: '50GB',
-    email: 50,
-    domain: 50,
-    support: 'Endless',
-    price: '$ 50'
-  }
-];
-
-// container div card pricing
-const pricingCards = document.getElementById('pricing-cards');
-
-for( let k = 0; k < dataPricing.length; k++ ) {
-  let card = document.createElement('div');
-  let divHeader = document.createElement('div');
-  let divButton = document.createElement('div');
-
-  let ul = document.createElement('ul');
-  let h3 = document.createElement('h3');
-  let p = document.createElement('p');
+  let tdButton = document.createElement('td');
   let button = document.createElement('button');
-  let liStorage = document.createElement('li');
-  let liEmail = document.createElement('li');
-  let liDomain = document.createElement('li');
-  let liSupport = document.createElement('li');
 
-  card.classList.add('pricing-card');
-  divHeader.classList.add('div-header');
-  divButton.classList.add('div-button');
+  // input data ke element html yg telah dibuat
+  tdNomor.innerText = jumlah + '.';
+  tdID.innerText = dataUser[i].id;
+  tdName.innerText = dataUser[i].name;
+  tdEmail.innerText = dataUser[i].email;
+  tdSubject.innerText = dataUser[i].subject;
+  tdComment.innerText = dataUser[i].comment;
 
-  if( k % 2 == 1 ) {
-    divHeader.classList.add('div-header-bedawarna');
-  }
+  button.innerText = 'Delete';
+  tdButton.appendChild(button);
 
-  h3.innerText = dataPricing[k].title;
-  liStorage.innerHTML = `<b>${dataPricing[k].storage}</b> Storage`;
-  liEmail.innerHTML = `<b>${dataPricing[k].email}</b> Emails`;
-  liDomain.innerHTML = `<b>${dataPricing[k].domain}</b> Domains`;
-  liSupport.innerHTML = `<b>${dataPricing[k].support}</b> Support`;
-  p.innerHTML= `${dataPricing[k].price} <br><span>per mounth</span>`;
-  button.innerText = 'Sign Up';
+  // memasukan element html yg ada value-nya ke tag parent nya
+  tr.append(tdNomor, tdID, tdName, tdEmail, tdSubject, tdComment, tdButton);
+  tbody.appendChild(tr);
 
-  divHeader.appendChild(h3);
-  ul.append(liStorage, liEmail, liDomain, liSupport);
-  divButton.appendChild(button);
+}
 
-  card.append(divHeader, ul, p, divButton);
-  pricingCards.appendChild(card);
+
+
+
+let btn = document.querySelectorAll('table button');
+for( let j = 0; j < btn.length; j++ ) {
+  // console.log(btn[j]);
+
+  btn[j].addEventListener('click', function() {
+    // console.log('ok ' + j);
+
+    // let btnIniLocalStorage = dataUser[j].id;
+    // console.log(btnIniLocalStorage);
+
+    // let aa = localStorage.removeItem('datas', btnIniLocalStorage);
+    // console.log(aa);
+    // localStorage.removeItem(btnIniLocalStorage);
+
+
+
+    let btnIni = btn[j].parentElement.parentElement;
+    btnIni.remove();
+
+    // let index
+
+    // dataUser.splice(1,1)
+    localStorage.setItem('datas', JSON.stringify(dataUser));
+
+    // localStorage.removeItem("datas");
+
+  });
 }
